@@ -12,7 +12,7 @@ public class MainActivity extends AppCompatActivity {
     private static final String LOG_TAG =
             MainActivity.class.getSimpleName();
     public static final String EXTRA_MESSAGE =
-            "com.example.android.twoactivities.extra.MESSAGE";
+            "id.web.ardhi.twoactivities.extra.MESSAGE";
     private EditText mMessageEditText;
     public static final int TEXT_REQUEST = 1;
     private TextView mReplyHeadTextView;
@@ -32,7 +32,6 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, SecondActivity.class);
         String message = mMessageEditText.getText().toString();
         intent.putExtra(EXTRA_MESSAGE, message);
-        startActivity(intent);
         startActivityForResult(intent, TEXT_REQUEST);
     }
 
