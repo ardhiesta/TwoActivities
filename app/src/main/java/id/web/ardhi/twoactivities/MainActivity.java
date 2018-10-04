@@ -28,6 +28,25 @@ public class MainActivity extends AppCompatActivity {
 
         Log.d(LOG_TAG, "----------");
         Log.d(LOG_TAG, "onCreate");
+
+        // Initialize all the view variables.
+        mMessageEditText = findViewById(R.id.editText_main);
+        mReplyHeadTextView = findViewById(R.id.text_header_reply);
+        mReplyTextView = findViewById(R.id.text_message_reply);
+
+        // Restore the state.
+        // potongan code di bawah untuk mengatur tampilan program
+        // ketika device dirotasi, textView di bagian atas tetap terlihat
+        if (savedInstanceState != null) {
+            boolean isVisible =
+                    savedInstanceState.getBoolean("reply_visible");
+
+            if (isVisible) {
+                mReplyHeadTextView.setVisibility(View.VISIBLE);
+                mReplyTextView.setText(savedInstanceState.getString("reply_text"));
+                mReplyTextView.setVisibility(View.VISIBLE);
+            }
+        }
     }
 
     @Override
@@ -93,7 +112,7 @@ public class MainActivity extends AppCompatActivity {
         super.onSaveInstanceState(outState);
         if (mReplyHeadTextView.getVisibility() == View.VISIBLE) {
             outState.putBoolean("reply_visible", true);
-            outState.putString("reply_text",mReplyTextView.getText().toString());
+            outState.putString("reply_text", mReplyTextView.getText().toString());
         }
     }
 }
