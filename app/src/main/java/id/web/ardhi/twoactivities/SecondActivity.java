@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 public class SecondActivity extends AppCompatActivity {
     public static final String EXTRA_REPLY =
-            "com.example.android.twoactivities.extra.REPLY";
+            "id.web.ardhi.twoactivities.extra.REPLY";
     private EditText mReply;
 
     @Override
